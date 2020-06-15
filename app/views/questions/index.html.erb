@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="listing-question">
+    <h2>Listing Questions</h2>
+
+    <p class="add-new">
+      <span class="fas fa-plus-circle"></span> <%= link_to 'New Question', new_question_path %>
+    </p>
+
+    <div class="questions">
+      <% @questions.each do |question| %>
+        <p class="question">
+          <h4><%= link_to question.title, question %></h4>
+        </p>
+      <% end %>
+    </div>
+
+  </div>
+</div>

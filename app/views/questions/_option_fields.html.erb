@@ -1,0 +1,15 @@
+<fieldset>
+  <%= f.hidden_field :_destroy %>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col-9">
+        <%= f.text_field :content, :class => "form-control", :placeholder => "Option" %>
+      </div>
+      <div class="col-3">
+        <span class="fas fa-trash-alt">
+          <%= link_to "Remove", '#', class: "remove_fields" %>
+        </span>
+      </div>
+    </div>
+  </div>
+</fieldset>

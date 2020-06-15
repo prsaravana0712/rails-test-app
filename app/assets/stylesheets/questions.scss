@@ -1,0 +1,50 @@
+// Place all the styles related to the Questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css");
+
+html,
+body {
+  background-color: transparent;
+}
+
+.listing-question {
+  margin-top: 5%;
+}
+
+.add-new {
+  float: right;;
+}
+
+.questions,
+.new-question,
+.edit-question,
+.show-question {
+  margin-top: 50px;
+}
+
+.remove_fields,
+.remove_fields:hover,
+.fa-trash-alt {
+  color: red;
+}
+
+.fa-edit,
+.fa-th-list {
+  color: blue;
+}
+
+a,
+a:hover {
+  color: blue;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+p a,
+p a:hover,
+span {
+  color: green;
+}

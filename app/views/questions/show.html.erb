@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="show-question">
+    <h3><%= @question.title %></h3>
+
+    <ol class="options">
+      <% @question.options.each do |option| %>
+        <li>
+          <%= option.content %>
+        </li>
+      <% end %>
+    </ol>
+
+    <div class="form-group">
+      <span class="fas fa-edit">
+        <%= link_to 'Edit', edit_question_path(@question) %> |
+      </span>
+
+      <span class="fas fa-th-list">
+        <%= link_to 'List Questions', questions_path %>
+      </span>
+    </div>
+  </div>
+</div>
