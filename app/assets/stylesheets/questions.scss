@@ -25,9 +25,9 @@ body {
   margin-top: 50px;
 }
 
-.remove_fields,
-.remove_fields:hover,
-.fa-trash-alt {
+.fa-trash-alt,
+.fa-trash-alt a,
+.fa-trash-alt a:hover {
   color: red;
 }
 

@@ -15,6 +15,10 @@
         <%= link_to 'Edit', edit_question_path(@question) %> |
       </span>
 
+      <span class="fas fa-trash-alt">
+        <%= link_to 'Delete', question_path(@question), method: :delete, data: { confirm: 'Are you sure?' } %> |
+      </span>
+
       <span class="fas fa-th-list">
         <%= link_to 'List Questions', questions_path %>
       </span>
