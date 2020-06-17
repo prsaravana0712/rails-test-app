@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="show-customer">
+    <h3>Show Customer Details</h3>
+    <p>
+      <strong>Name:</strong>
+      <%= @customer.name %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @customer.email %>
+    </p>
+
+    <p>
+      <strong>Mobile:</strong>
+      <%= @customer.mobile %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @customer.city %>
+    </p>
+
+    <div class="form-group">
+      <span class="fas fa-edit">
+        <%= link_to 'Edit', edit_customer_path(@customer) %> |
+      </span>
+
+      <span class="fas fa-trash-alt">
+        <%= link_to 'Delete', customer_path(@customer), method: :delete, data: { confirm: 'Are you sure?' } %> |
+      </span>
+
+      <span class="fas fa-th-list">
+        <%= link_to 'List Customers', customers_path %>
+      </span>
+    </div>
+  </div>
+</div>
