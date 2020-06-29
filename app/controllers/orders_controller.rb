@@ -5,6 +5,11 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
     @customers = Customer.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: OrderDatatable.new(params) }
+    end
   end
 
   # GET /orders/:id
