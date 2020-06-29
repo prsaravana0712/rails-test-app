@@ -1,2 +1,75 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div class="container">
+  <div class="listing-customer">
+    <h2>Listing Customers</h2>
+
+    <p class="add-new">
+      <span class="fas fa-plus-circle"></span> <%= link_to 'New Customer', new_customer_path %>
+    </p>
+
+    <table class="table table-hover row-border" id="customers-datatable" data-source="<%= customers_path(format: :json) %>">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>City</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="listing-order">
+    <h2>Listing Orders</h2>
+
+    <p class="add-new">
+      <span class="fas fa-plus-circle"></span> <%= link_to 'New Order', new_order_path %>
+    </p>
+
+    <table class="table table-hover row-border" id="orders-datatable" data-source="<%= orders_path(format: :json) %>">
+      <thead class="thead-dark">
+        <tr>
+          <th>Order ID</th>
+          <th>Item Name</th>
+          <th>Price</th>
+          <th>Customer</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  jQuery(document).ready(function() {
+    $('#customers-datatable').dataTable({
+      "processing": true,
+      "serverSide": true,
+      "ajax": $('#customers-datatable').data('source'),
+      "pagingType": "full_numbers",
+      "columns": [
+        {"data": "name"},
+        {"data": "email"},
+        {"data": "mobile"},
+        {"data": "city"}
+      ]
+    });
+
+    $('#orders-datatable').dataTable({
+      "processing": true,
+      "serverSide": true,
+      "ajax": $('#orders-datatable').data('source'),
+      "pagingType": "full_numbers",
+      "columns": [
+        {"data": "order_id"},
+        {"data": "item_name"},
+        {"data": "price"},
+        {"data": "customer_name"}
+      ]
+    });
+  });
+</script>

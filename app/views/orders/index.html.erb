@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="listing-order">
+    <h2>Listing Orders</h2>
+
+    <p class="add-new">
+      <span class="fas fa-plus-circle"></span> <%= link_to 'New Order', new_order_path %>
+    </p>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Item Name</th>
+          <th>Price</th>
+          <th>Customer</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @orders.each do |order| %>
+          <% @customers.each do |customer| %>
+            <% if(order.customer_id == customer.id) %>
+              <tr>
+                <td><%= order.order_id %></td>
+                <td><%= order.item_name %></td>
+                <td><%= order.price %></td>
+                <td><%= link_to customer.name, customer_path(customer) %></td>
+                <td><span class="fas fa-eye"> <%= link_to 'Show', order %></span></td>
+                <td><span class="fas fa-edit"> <%= link_to 'Edit', edit_order_path(order) %></span></td>
+                <td><span class="fas fa-trash-alt"> <%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+              </tr>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

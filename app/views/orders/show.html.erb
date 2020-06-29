@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="show-order">
+    <h3>Show Order Details</h3>
+    <p>
+      <strong>Order ID:</strong>
+      <%= @order.order_id %>
+    </p>
+
+    <p>
+      <strong>Item Name:</strong>
+      <%= @order.item_name %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= @order.price %>
+    </p>
+
+    <p>
+      <strong>Customer:</strong>
+      <%= link_to @customer.name, customer_path(@customer) %>
+    </p>
+
+    <div class="form-group">
+      <span class="fas fa-edit">
+        <%= link_to 'Edit', edit_order_path(@order) %> |
+      </span>
+
+      <span class="fas fa-trash-alt">
+        <%= link_to 'Delete', order_path(@order), method: :delete, data: { confirm: 'Are you sure?' } %> |
+      </span>
+
+      <span class="fas fa-th-list">
+        <%= link_to 'List Orders', orders_path %>
+      </span>
+    </div>
+  </div>
+</div>
