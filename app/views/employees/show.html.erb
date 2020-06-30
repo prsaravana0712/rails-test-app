@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="show-employee">
+    <h3>Show Employee Details</h3>
+    <p>
+      <strong>Name:</strong>
+      <%= @employee.name %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @employee.email %>
+    </p>
+
+    <p>
+      <strong>Designation:</strong>
+      <%= @employee.designation %>
+    </p>
+
+    <p>
+      <strong>Responsibilities:</strong>
+      <%= @response %>
+    </p>
+
+    <div class="form-group">
+      <span class="fas fa-edit">
+        <%= link_to 'Edit', edit_employee_path(@employee) %> |
+      </span>
+
+      <span class="fas fa-trash-alt">
+        <%= link_to 'Delete', employee_path(@employee), method: :delete, data: { confirm: 'Are you sure?' } %> |
+      </span>
+
+      <span class="fas fa-th-list">
+        <%= link_to 'List Employees', employees_path %>
+      </span>
+    </div>
+  </div>
+</div>
