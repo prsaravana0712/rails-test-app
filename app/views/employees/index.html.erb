@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="listing-employee">
+    <h2>Listing Employees</h2>
+
+    <p class="add-new">
+      <span class="fas fa-plus-circle"></span> <%= link_to 'New Employee', new_employee_path %>
+    </p>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Designation</th>
+          <th class="text-center" colspan="3">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @employees.each do |employee| %>
+          <tr>
+            <td><%= employee.name %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.designation %></td>
+            <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', employee %></span></td>
+            <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_employee_path(employee) %></span></td>
+            <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

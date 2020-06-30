@@ -1,0 +1,13 @@
+<div class="container">
+  <p class="list-all">
+    <span class="fas fa-th-list">
+      <%= link_to 'List Employees', employees_path %>
+    </span>
+  </p>
+
+  <div class="new-employee">
+    <h3>Editing Order</h3>
+
+    <%= render 'form', employee: @employee %>
+  </div>
+</div>
