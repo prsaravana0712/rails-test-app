@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="listing-chat">
+    <h2>Chats</h2>
+
+    <p class="add-new">
+      <span class="fas fa-plus-circle"></span> <%= link_to 'New Chat', new_chat_path %>
+    </p>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Message</th>
+          <th class="text-center" colspan="3">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @chats.each do |chat| %>
+          <tr>
+            <td><%= chat.message %></td>
+            <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', chat %></span></td>
+            <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_chat_path(chat) %></span></td>
+            <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', chat, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
