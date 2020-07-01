@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :chats
+
   resources :employees
   resources :project_managers, controller: 'employees', type: 'ProjectManager'
   resources :team_leaders, controller: 'employees', type: 'TeamLeader'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :questions
 
-  root 'welcome#index'
+  root 'chats#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

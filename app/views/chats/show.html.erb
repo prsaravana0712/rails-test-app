@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="show-chat">
+    <h3>Show Customer Details</h3>
+    <p>
+      <strong>Message:</strong>
+      <%= @chat.message %>
+    </p>
+
+    <div class="form-group">
+      <span class="fas fa-edit">
+        <%= link_to 'Edit', edit_chat_path(@chat) %> |
+      </span>
+
+      <span class="fas fa-trash-alt">
+        <%= link_to 'Delete', chat_path(@chat), method: :delete, data: { confirm: 'Are you sure?' } %> |
+      </span>
+
+      <span class="fas fa-th-list">
+        <%= link_to 'List Customers', chats_path %>
+      </span>
+    </div>
+  </div>
+</div>
