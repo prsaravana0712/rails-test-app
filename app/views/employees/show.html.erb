@@ -1,5 +1,11 @@
-<div class="container">
-  <div class="show-employee">
+<div class="content">
+  <p class="back">
+    <span class="fas fa-arrow-circle-left">
+      <%= link_to 'Back', employees_path %>
+    </span>
+  </p>
+
+  <div class="show">
     <h3>Show Employee Details</h3>
     <p>
       <strong>Name:</strong>
@@ -27,11 +33,7 @@
       </span>
 
       <span class="fas fa-trash-alt">
-        <%= link_to 'Delete', employee_path(@employee), method: :delete, data: { confirm: 'Are you sure?' } %> |
-      </span>
-
-      <span class="fas fa-th-list">
-        <%= link_to 'List Employees', employees_path %>
+        <%= link_to 'Delete', employee_path(@employee), method: :delete, data: { confirm: 'Are you sure?' } %>
       </span>
     </div>
   </div>

@@ -5,6 +5,7 @@ class EmployeesController < ApplicationController
   # GET /employees
   def index
     @employees = designation_class.all
+    @designation = designation_class
   end
 
   # GET /employees/:id
@@ -52,6 +53,7 @@ class EmployeesController < ApplicationController
   # DELETE /employees/:id
   def destroy
     @employee.destroy
+
     respond_to do |format|
       format.html { redirect_to employees_url, notice: '#{designation} was successfully destroyed.' }
       format.json { head :no_content }

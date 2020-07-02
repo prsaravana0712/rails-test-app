@@ -1,5 +1,11 @@
-<div class="container">
-  <div class="show-order">
+<div class="content">
+  <p class="back">
+    <span class="fas fa-arrow-circle-left">
+      <%= link_to 'Back', orders_path %>
+    </span>
+  </p>
+
+  <div class="show">
     <h3>Show Order Details</h3>
     <p>
       <strong>Order ID:</strong>
@@ -27,11 +33,7 @@
       </span>
 
       <span class="fas fa-trash-alt">
-        <%= link_to 'Delete', order_path(@order), method: :delete, data: { confirm: 'Are you sure?' } %> |
-      </span>
-
-      <span class="fas fa-th-list">
-        <%= link_to 'List Orders', orders_path %>
+        <%= link_to 'Delete', order_path(@order), method: :delete, data: { confirm: 'Are you sure?' } %>
       </span>
     </div>
   </div>

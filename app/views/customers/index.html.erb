@@ -1,13 +1,25 @@
-<div class="container">
-  <div class="listing-customer">
-    <h2>Listing Customers</h2>
+<div class="content">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" href="/customers">Customers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/orders">Orders</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/datatable">Datatable</a>
+    </li>
+  </ul>
+
+  <div class="list">
+    <h2>Customers</h2>
 
     <p class="add-new">
       <span class="fas fa-plus-circle"></span> <%= link_to 'New Customer', new_customer_path %>
     </p>
 
     <table class="table table-hover">
-      <thead>
+      <thead class="table-secondary">
         <tr>
           <th>Name</th>
           <th>Email</th>
@@ -18,15 +30,21 @@
       </thead>
 
       <tbody>
-        <% @customers.each do |customer| %>
+        <% if @customers.length > 0 %>
+          <% @customers.each do |customer| %>
+            <tr>
+              <td><%= customer.name %></td>
+              <td><%= customer.email %></td>
+              <td><%= customer.mobile %></td>
+              <td><%= customer.city %></td>
+              <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', customer %></span></td>
+              <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_customer_path(customer) %></span></td>
+              <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
-            <td><%= customer.name %></td>
-            <td><%= customer.email %></td>
-            <td><%= customer.mobile %></td>
-            <td><%= customer.city %></td>
-            <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', customer %></span></td>
-            <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_customer_path(customer) %></span></td>
-            <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', customer, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+            <td class="text-center" colspan="7">No data available</td>
           </tr>
         <% end %>
       </tbody>

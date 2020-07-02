@@ -1,17 +1,31 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <title>Welcome to Action Mailer</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      body {
+        margin: 0;
+        padding: 0;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+      }
+
+      p {
+        display:block;margin:13px 0;
+      }
+    </style>
   </head>
-  <body>
-    <p>You are successfully registered with us <%= @customer.name %>!</p>
-    <p>
-    Account details<br>
-    --------------------------
-    </p>
-    <p>Name: <%= @customer.name %></p>
-    <p>Email: <%= @customer.email %></p>
-    <p>Address: <%= @customer.mobile %></p>
-    <p>Phone: <%= @customer.city %></p>
+  <body style="background-color:#f6f6f6;">
+    <div style="background:transparent;padding: 20px 0 20px 0;margin:20px auto;max-width:600px;">
+      <h3>You are successfully registered with us <%= @customer.name %>!</h3>
+      ---------------------------------------------------------------------
+      <p><b>Name:</b> <%= @customer.name %></p>
+      <p><b>Email:</b> <%= @customer.email %></p>
+      <p><b>Mobile:</b> <%= @customer.mobile %></p>
+      <p><b>City:</b> <%= @customer.city %></p>
+    </div>
   </body>
 </html>

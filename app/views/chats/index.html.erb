@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="listing-chat">
+<div class="content">
+  <div class="list">
     <h2>Chats</h2>
 
     <p class="add-new">
@@ -7,7 +7,7 @@
     </p>
 
     <table class="table table-hover">
-      <thead>
+      <thead class="table-secondary">
         <tr>
           <th>Message</th>
           <th class="text-center" colspan="3">Actions</th>
@@ -15,12 +15,18 @@
       </thead>
 
       <tbody>
-        <% @chats.each do |chat| %>
+        <% if @chats.length > 0 %>
+          <% @chats.each do |chat| %>
+            <tr>
+              <td><%= chat.message %></td>
+              <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', chat %></span></td>
+              <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_chat_path(chat) %></span></td>
+              <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', chat, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
-            <td><%= chat.message %></td>
-            <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', chat %></span></td>
-            <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_chat_path(chat) %></span></td>
-            <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', chat, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+            <td class="text-center" colspan="4">No data available</td>
           </tr>
         <% end %>
       </tbody>
