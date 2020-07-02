@@ -1,13 +1,25 @@
-<div class="container">
-  <div class="listing-order">
-    <h2>Listing Orders</h2>
+<div class="content">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" href="/customers">Customers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/orders">Orders</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/datatable">Datatable</a>
+    </li>
+  </ul>
+
+  <div class="list">
+    <h2>Orders</h2>
 
     <p class="add-new">
       <span class="fas fa-plus-circle"></span> <%= link_to 'New Order', new_order_path %>
     </p>
 
     <table class="table table-hover">
-      <thead>
+      <thead class="table-secondary">
         <tr>
           <th>Order ID</th>
           <th>Item Name</th>
@@ -18,20 +30,26 @@
       </thead>
 
       <tbody>
-        <% @orders.each do |order| %>
-          <% @customers.each do |customer| %>
-            <% if(order.customer_id == customer.id) %>
-              <tr>
-                <td><%= order.order_id %></td>
-                <td><%= order.item_name %></td>
-                <td><%= order.price %></td>
-                <td><%= link_to customer.name, customer_path(customer) %></td>
-                <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', order %></span></td>
-                <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_order_path(order) %></span></td>
-                <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
-              </tr>
+        <% if @orders.length > 0 %>
+          <% @orders.each do |order| %>
+            <% @customers.each do |customer| %>
+              <% if(order.customer_id == customer.id) %>
+                <tr>
+                  <td><%= order.order_id %></td>
+                  <td><%= order.item_name %></td>
+                  <td><%= order.price %></td>
+                  <td><%= link_to customer.name, customer_path(customer) %></td>
+                  <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', order %></span></td>
+                  <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_order_path(order) %></span></td>
+                  <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', order, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+                </tr>
+              <% end %>
             <% end %>
           <% end %>
+        <% else %>
+          <tr>
+            <td class="text-center" colspan="7">No data available</td>
+          </tr>
         <% end %>
       </tbody>
     </table>

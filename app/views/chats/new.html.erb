@@ -1,16 +1,16 @@
-<div class="container">
-  <p class="list-all">
-    <span class="fas fa-th-list">
-      <%= link_to 'Chats', chats_path %>
+<div class="content">
+  <p class="back">
+    <span class="fas fa-arrow-circle-left">
+      <%= link_to 'Back', chats_path %>
     </span>
   </p>
 
-  <div class="new-chat">
+  <div class="new">
     <h3>New Chat</h3>
 
-    <% @chats.each do |chat| %>
-      <p><%= chat.message %></p>
-    <% end %>
+    <%# @chats.each do |chat| %>
+      <p><%#= chat.message %></p>
+    <%# end %>
     
     <div id="new_message"%></div>
 

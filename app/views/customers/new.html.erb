@@ -1,11 +1,11 @@
-<div class="container">
-  <p class="list-all">
-    <span class="fas fa-th-list">
-      <%= link_to 'List Customers', customers_path %>
+<div class="content">
+  <p class="back">
+    <span class="fas fa-arrow-circle-left">
+      <%= link_to 'Back', customers_path %>
     </span>
   </p>
 
-  <div class="new-customer">
+  <div class="new">
     <h3>New Customer</h3>
 
     <%= render 'form', customer: @customer %>

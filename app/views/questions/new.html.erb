@@ -1,5 +1,11 @@
-<div class="container">
-  <div class="new-question">
+<div class="content">
+  <p class="back">
+    <span class="fas fa-arrow-circle-left">
+      <%= link_to 'Back', questions_path %>
+    </span>
+  </p>
+
+  <div class="new">
     <h3>New Question</h3>
 
     <%= render "form" %>

@@ -4,7 +4,7 @@ class OrderDatatable < AjaxDatatablesRails::ActiveRecord
       order_id: { source: "Order.order_id" },
       item_name: { source: "Order.item_name" },
       price: { source: "Order.price" },
-      customer_name: { source: "Order.customer_name", searchable: false }
+      customer_name: { source: "Order.customer_name", searchable: false, orderable: false }
     }
   end
 

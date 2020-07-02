@@ -29,7 +29,6 @@ class ChatsController < ApplicationController
         ActionCable.server.broadcast 'chat_channel', content: @chat
         # format.html { redirect_to @chat, notice: 'Chat was successfully created.' }
         # format.json { render :show, status: :created, location: @chat }
-        format.js
       else
         format.html { render :new }
         format.json { render json: @chat.errors, status: :unprocessable_entity }

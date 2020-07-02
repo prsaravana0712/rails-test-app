@@ -1,13 +1,31 @@
-<div class="container">
-  <div class="listing-employee">
-    <h2>Listing Employees</h2>
+<div class="content">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" href="/employees">Employees</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/project_managers">Project Managers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/team_leaders">Team Leaders</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/developers">Developers</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/testers">Testers</a>
+    </li>
+  </ul>
+
+  <div class="list">
+    <h2><%= @designation %>s</h2>
 
     <p class="add-new">
       <span class="fas fa-plus-circle"></span> <%= link_to 'New Employee', new_employee_path %>
     </p>
 
     <table class="table table-hover">
-      <thead>
+      <thead class="table-secondary">
         <tr>
           <th>Name</th>
           <th>Email</th>
@@ -17,14 +35,20 @@
       </thead>
 
       <tbody>
-        <% @employees.each do |employee| %>
+        <% if @employees.length > 0 %>
+          <% @employees.each do |employee| %>
+            <tr>
+              <td><%= employee.name %></td>
+              <td><%= employee.email %></td>
+              <td><%= employee.designation %></td>
+              <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', employee %></span></td>
+              <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_employee_path(employee) %></span></td>
+              <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+            </tr>
+          <% end %>
+        <% else %>
           <tr>
-            <td><%= employee.name %></td>
-            <td><%= employee.email %></td>
-            <td><%= employee.designation %></td>
-            <td class="text-center"><span class="fas fa-eye"> <%= link_to 'Show', employee %></span></td>
-            <td class="text-center"><span class="fas fa-edit"> <%= link_to 'Edit', edit_employee_path(employee) %></span></td>
-            <td class="text-center"><span class="fas fa-trash-alt"> <%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></span></td>
+            <td class="text-center" colspan="6">No data available</td>
           </tr>
         <% end %>
       </tbody>

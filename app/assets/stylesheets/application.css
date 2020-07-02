@@ -10,7 +10,104 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require datatables
- *= require_self
  */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css");
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css");
+@import url("https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css");
+ 
+body {
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+ 
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+ 
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  background-color: #c52f24;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #d6d8db;
+  color: black;
+}
+ 
+div.content {
+  margin-left: 200px;
+  padding: 20px;
+  height: 1000px;
+}
+ 
+.add-new {
+  float: right;;
+}
+ 
+.list,
+.new,
+.edit,
+.show {
+  margin-top: 50px;
+}
+ 
+a,
+a:hover {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: none;
+}
+ 
+.fa-eye,
+.fa-eye a,
+.fa-eye a:hover {
+  color: #28a745;
+}
+ 
+.fa-edit,
+.fa-edit a,
+.fa-edit a:hover {
+  color: #17a2b8;
+}
+ 
+.fa-trash-alt,
+.fa-trash-alt a,
+.fa-trash-alt a:hover {
+  color: #dc3545;
+}
+ 
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar a {
+    float: left;
+  }
+
+  div.content {
+    margin-left: 0;
+  }
+}
+ 
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}

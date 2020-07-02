@@ -30,7 +30,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        WelcomeMailer.with(user: @user).welcome_email.deliver_later
+        WelcomeMailer.with(customer: @customer).welcome_email.deliver_later
 
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }

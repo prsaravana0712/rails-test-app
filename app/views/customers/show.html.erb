@@ -1,5 +1,11 @@
-<div class="container">
-  <div class="show-customer">
+<div class="content">
+  <p class="back">
+    <span class="fas fa-arrow-circle-left">
+      <%= link_to 'Back', customers_path %>
+    </span>
+  </p>
+
+  <div class="show">
     <h3>Show Customer Details</h3>
     <p>
       <strong>Name:</strong>
@@ -27,11 +33,7 @@
       </span>
 
       <span class="fas fa-trash-alt">
-        <%= link_to 'Delete', customer_path(@customer), method: :delete, data: { confirm: 'Are you sure?' } %> |
-      </span>
-
-      <span class="fas fa-th-list">
-        <%= link_to 'List Customers', customers_path %>
+        <%= link_to 'Delete', customer_path(@customer), method: :delete, data: { confirm: 'Are you sure?' } %>
       </span>
     </div>
   </div>
