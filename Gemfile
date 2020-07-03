@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'ajax-datatables-rails'
 gem 'jquery-rails'
 gem 'jquery-datatables'
+
+gem 'draper'
