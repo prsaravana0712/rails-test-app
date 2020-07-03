@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  include MyConcern
+
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
 
   # GET /customers
@@ -30,7 +32,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        WelcomeMailer.with(customer: @customer).welcome_email.deliver_later
+        email_notification(@customer)
 
         format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
