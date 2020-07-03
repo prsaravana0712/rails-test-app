@@ -15,6 +15,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/:id
   def show
+    @customer = Customer.find(params[:id]).decorate
   end
 
   # GET /customers/new
